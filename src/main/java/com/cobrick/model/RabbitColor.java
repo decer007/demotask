@@ -8,7 +8,7 @@ public class RabbitColor {
     public RabbitColor() {
     }
 
-    public RabbitColor(String color) {
+    public RabbitColor(final String color) {
         this.color = color;
     }
 
@@ -22,10 +22,10 @@ public class RabbitColor {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        RabbitColor rabbitColor = (RabbitColor) obj;
+        final RabbitColor rabbitColor = (RabbitColor) obj;
         return Objects.equals(this.color, rabbitColor.color);
     }
 

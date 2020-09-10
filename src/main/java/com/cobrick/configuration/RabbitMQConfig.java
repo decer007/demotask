@@ -11,7 +11,7 @@ import java.io.IOException;
 public class RabbitMQConfig extends ChannelInitializer {
 
     @Override
-    public void initialize(Channel channel) throws IOException {
+    public void initialize(final Channel channel) throws IOException {
         channel.exchangeDeclare("cobrick", BuiltinExchangeType.DIRECT, true);
         channel.queueDeclare("colors", true, false, false, null);
         channel.queueBind("colors", "cobrick", "colors");

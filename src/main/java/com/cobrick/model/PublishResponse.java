@@ -8,7 +8,7 @@ public class PublishResponse {
     public PublishResponse() {
     }
 
-    public PublishResponse(boolean published) {
+    public PublishResponse(final boolean published) {
         this.published = published;
     }
 
@@ -22,10 +22,10 @@ public class PublishResponse {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        PublishResponse publishResponse = (PublishResponse) obj;
+        final PublishResponse publishResponse = (PublishResponse) obj;
         return Objects.equals(this.published, publishResponse.published);
     }
 

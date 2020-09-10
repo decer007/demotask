@@ -9,7 +9,7 @@ public class MyColor {
     public MyColor() {
     }
 
-    public MyColor(boolean publish, String color) {
+    public MyColor(final boolean publish, final String color) {
         this.publish = publish;
         this.color = color;
     }
@@ -28,10 +28,10 @@ public class MyColor {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        MyColor color = (MyColor) obj;
+        final MyColor color = (MyColor) obj;
         return Objects.equals(this.publish, color.publish) &&
                 Objects.equals(this.color, color.color);
     }

@@ -7,7 +7,7 @@ import com.cobrick.model.PublishResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Controller("/publish")
 public class ColorController {
@@ -15,7 +15,7 @@ public class ColorController {
     private final ColorFilter colorFilter;
     private final ColorClient colorClient;
 
-    public ColorController(ColorFilter colorFilter, ColorClient colorClient) {
+    public ColorController(final ColorFilter colorFilter, final ColorClient colorClient) {
         this.colorFilter = colorFilter;
         this.colorClient = colorClient;
     }
@@ -23,7 +23,7 @@ public class ColorController {
     @Post
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public PublishResponse publish(@Body ArrayList<MyColor> colors) {
+    public PublishResponse publish(@Body final List<MyColor> colors) {
         this.colorFilter.filterColors(colors)
             .forEach(colorClient::publishColor);
         return new PublishResponse(true);

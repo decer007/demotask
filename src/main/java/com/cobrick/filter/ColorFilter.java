@@ -5,7 +5,6 @@ import com.cobrick.model.MyColor;
 import com.cobrick.model.RabbitColor;
 
 import javax.inject.Singleton;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,11 +15,11 @@ public class ColorFilter {
 
     final private List<ColorProperty> colorProperties;
 
-    public ColorFilter(List<ColorProperty> colorProperties) {
+    public ColorFilter(final List<ColorProperty> colorProperties) {
         this.colorProperties = colorProperties;
     }
 
-    public Stream<RabbitColor> filterColors(ArrayList<MyColor> colors) {
+    public Stream<RabbitColor> filterColors(final List<MyColor> colors) {
         return colors
             .parallelStream()
             .filter(color -> {

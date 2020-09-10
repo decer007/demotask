@@ -7,5 +7,5 @@ import io.micronaut.rabbitmq.annotation.RabbitClient;
 @RabbitClient
 public interface ColorClient {
     @Binding("colors")
-    void publishColor(RabbitColor color);
+    void publishColor(final RabbitColor color);
 }
