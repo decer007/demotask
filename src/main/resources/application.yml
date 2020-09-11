@@ -1,7 +1,12 @@
 micronaut:
+  server:
+    port: 8080
   application:
     name: demotask
-rabbitmq.uri: amqp://localhost:5672
+rabbitmq:
+  uri: "${RABBITMQ_URI:`amqp://localhost:5672`}"
+  username: "${RABBITMQ_USERNAME:`guest`}"
+  password: "${RABBITMQ_PASSWORD:`guest`}"
 mapping:
   red: "255,0,0"
   green: "0,255,0"
