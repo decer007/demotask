@@ -1,19 +1,20 @@
 package com.cobrick.filter;
 
-import com.cobrick.model.ColorProperty;
-import com.cobrick.model.MyColor;
-import com.cobrick.model.RabbitColor;
+import com.cobrick.domain.ColorProperty;
+import com.cobrick.domain.MyColor;
+import com.cobrick.domain.RabbitColor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Singleton;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 @Singleton
 public class ColorFilter {
 
     final private List<ColorProperty> colorProperties;
+    private static final Logger LOG = LoggerFactory.getLogger(ColorFilter.class);
 
     public ColorFilter(final List<ColorProperty> colorProperties) {
         this.colorProperties = colorProperties;
@@ -24,7 +25,7 @@ public class ColorFilter {
             .parallelStream()
             .filter(color -> {
                 if(color.getColor() == null || color.getColor().isBlank()) {
-                    Logger.getGlobal().log(Level.WARNING, "Bad data received: " + color.toString());
+                    LOG.warn("Bad data received: " + color.toString());
                     return false;
                 }
                 return color.isPublish();
