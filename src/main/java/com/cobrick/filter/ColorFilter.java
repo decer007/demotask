@@ -13,6 +13,7 @@ import java.util.stream.Stream;
 @Singleton
 public class ColorFilter {
 
+    final private String defaultColorName = "unknown";
     final private List<ColorProperty> colorProperties;
     private static final Logger LOG = LoggerFactory.getLogger(ColorFilter.class);
 
@@ -35,7 +36,7 @@ public class ColorFilter {
                 .parallelStream()
                 .filter(colorProperty -> colorProperty.getValue().equals(color.getColor()))
                 .findFirst()
-                .orElse(new ColorProperty("unknown", color.getColor()))
+                .orElse(new ColorProperty(defaultColorName, color.getColor()))
                 .getName()
                 .toUpperCase()
             ));

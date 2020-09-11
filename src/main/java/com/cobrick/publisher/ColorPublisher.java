@@ -6,6 +6,6 @@ import io.micronaut.rabbitmq.annotation.RabbitClient;
 
 @RabbitClient
 public interface ColorPublisher {
-    @Binding("colors")
+    @Binding("${rabbitmq.queue}")
     void publishColor(final RabbitColor color);
 }
