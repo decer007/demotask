@@ -1,4 +1,4 @@
-package com.cobrick.model;
+package com.cobrick.domain;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package com.cobrick.model;
+package com.cobrick.domain;
 
 import io.micronaut.context.annotation.EachProperty;
 import io.micronaut.context.annotation.Parameter;

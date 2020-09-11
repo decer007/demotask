@@ -1,8 +1,8 @@
 package com.cobrick;
 
 import com.cobrick.filter.ColorFilter;
-import com.cobrick.model.MyColor;
-import com.cobrick.model.RabbitColor;
+import com.cobrick.domain.MyColor;
+import com.cobrick.domain.RabbitColor;
 import io.micronaut.test.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
 

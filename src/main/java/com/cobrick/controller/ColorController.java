@@ -1,9 +1,9 @@
 package com.cobrick.controller;
 
-import com.cobrick.client.ColorClient;
+import com.cobrick.publisher.ColorPublisher;
 import com.cobrick.filter.ColorFilter;
-import com.cobrick.model.MyColor;
-import com.cobrick.model.PublishResponse;
+import com.cobrick.domain.MyColor;
+import com.cobrick.domain.PublishResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
 
@@ -13,11 +13,11 @@ import java.util.List;
 public class ColorController {
 
     private final ColorFilter colorFilter;
-    private final ColorClient colorClient;
+    private final ColorPublisher colorPublisher;
 
-    public ColorController(final ColorFilter colorFilter, final ColorClient colorClient) {
+    public ColorController(final ColorFilter colorFilter, final ColorPublisher colorPublisher) {
         this.colorFilter = colorFilter;
-        this.colorClient = colorClient;
+        this.colorPublisher = colorPublisher;
     }
 
     @Post
@@ -25,7 +25,7 @@ public class ColorController {
     @Produces(MediaType.APPLICATION_JSON)
     public PublishResponse publish(@Body final List<MyColor> colors) {
         this.colorFilter.filterColors(colors)
-            .forEach(colorClient::publishColor);
+            .forEach(colorPublisher::publishColor);
         return new PublishResponse(true);
     }
 }
